@@ -12,6 +12,13 @@ class instagram:
     def __init__(self,username,password):
         self.browserProfile = webdriver.ChromeOptions()
         self.browserProfile.add_experimental_option('prefs', {'intl.accept_languages':'en,en_US'})
+        self.browserProfile.add_argument('--mute-audio')
+        self.browserProfile.add_argument('--dns-prefetch-disable')
+        self.browserProfile.add_argument('--no-sandbox')
+        self.browserProfile.add_argument('--disable-setuid-sandbox')
+        self.browserProfile.add_argument('--incognito')
+        self.browserProfile.add_argument('--disk-cache-dir=/dev/null')
+        self.browserProfile.add_argument('--disk-cache-size=1')
         self.browserProfile.add_argument('--user-agent="Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 640 XL LTE) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10166"')
         self.browser = webdriver.Chrome('chromedriver.exe', chrome_options=self.browserProfile)
         self.username = username
